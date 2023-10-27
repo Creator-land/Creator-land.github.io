@@ -65,3 +65,53 @@ font-family:'Times New Roman' !important;
 .grey {
   background-color: #828282;
 }
+
+.float {
+  float: left;
+  width: 75%;
+}
+
+.descbox {
+  float: left;
+  width: 25%;
+  background-color:#828282;
+}
+
+th {
+  text-align: center;
+}
+
+section {
+  clear: left;  
+}
+
+table {
+  width: 100%;
+}
+
+tr:nth-child(even) {
+  background-color: #dadada;
+}
+
+th {
+  font-size: 20px;
+}
+
+.flex{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.short{
+  width: 20%;
+}
+
+.wide{
+  width: 30%;
+}
+
+.fill{
+  float: left;
+  width: 100%;
+}
