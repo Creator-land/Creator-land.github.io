@@ -326,23 +326,35 @@
                 <div class="wide grey">
                     <table>
                         <tr>
-                            <th colspan="2">VGA Wonder</th>
+                            <th colspan="2">GeForce 256</th>
                         </tr>
                         <tr>
                             <td>Significance</td> 
-                            <td>One of the first graphics cards to use the new VGA or "Video Graphics Array" Standard</td>
+                            <td>First Graphics Card to be called a GPU. It was also the first graphics card to have a Transform and Lighting "TnL" engine.</td>
                         </tr>
                         <tr>
                             <td>Manufacturer</td> 
-                            <td>ATI</td>   
+                            <td>NVIDIA</td>   
                         </tr>
                         <tr>
                             <td>Year</td>
-                            <td>1990</td>
+                            <td>1999</td>
                         </tr>
                     </table> 
                 </div>
             </div>
+        </section>
+
+        <section>
+            <h2>How GPUs work</h2>
+                <p>GPUs are useful for many tasks, such as crypto, crypto, crypto, AI, crypto, crypto, and maybe some graphics processing.  This is because they can perform many parallel calculations. While a high-end CPU such as the Intel i9 13900K has 24 cores, even a fairly weak integrated GPU, for example, the Vega 8 iGPU, has 512 cores. When we take a high-end discrete GPU, such as the RTX 4080, we can see that it has 9728 cores.  Even the Vega 8 iGPU has 21 times more cores than the CPU, making it useful for parallel processing such as crypto and AI in addition to its designated purpose of simulating graphics. In addition, GPU cores cannot talk to each other, unlike CPU cores. However, having many cores is also very good for crypto mining and AI, due to the fact that this allows them to try many different brute-force calculations, in addition to them being good at their primary purpose, which is graphics processing. GPUs use SIMD (Single Instruction Multiple Data) Architecture, which is basically the concept that every core gets the same instruction set, but depending on what pixel they are rendering, they only do the result for that pixel. For example, say we have a 25-core GPU exporting to a 25-pixel screen, that is rendering a checkerboard pattern, such as this one:</p> 
+                <img src="checkerboard.png" width="200">
+                <p>The cores represent each one pixel. Core one is on the top left, core two is the one beside that, etc. We can see that core one is exporting a black pixel, core two a white one, core three black again, and core four white again. This continues until the checkerboard is complete. Now we would like to add a post-processing shader, that puts the light source above the pattern, the diagonal of pixel one, to add shadows and bright spots to the checkerboard, which would require the addition of 25 more cores, to go over these pixels again and change their value based on the proximity to the light source, which would look something like this: </p>
+                <img src="shaded.png" width="200">
+                <p>We can see that the shader has gone over everything again, changing certain areas to brighten them up, or changing others to darken them. For example, cores one and twenty-six both worked on pixel one. Core one decided it was a black square, but core twenty-six decided to make it white, because it was right next to the light source. Got all that? Good! Let’s move on to the two Rs of graphics: Raytracing and Rasterization!</p>
+                <p>There are two different types of rendering used nowadays, called Raytracing and Rasterization. Rasterization uses polygons, always triangles, to assemble items. For example, a cube may have 2 triangles on each side to construct it, which would then make a cube. You can then calculate, according to shader code, how you want to do lighting via post-processing. Raytracing works differently. Rather than using polygons, it uses rays of light to simulate items and lighting. So, how does it work? You might think rays of light bounce from the light source around the scene and then the ones that go to the camera are what we see. However, only a small amount of rays actually reach the camera. So instead, we bounce rays from the camera around to see if it hits a light source. While this is still inefficient, it is more efficient than bouncing it from the light source.</p>
+                <p>So now that we know about the different types of rendering, we need to know their strengths and weaknesses. Rasterization is extremely good at rendering items with low amounts of computational power needed. It is not good at making realistic reflections, shadows, or any lighting effects. No lighting effects will be perfectly “realistic” when done via rasterization. Raytracing fixes this- it is extremely good at lighting and can do perfectly realistic lighting effects, but it has its own problems- it suffers from being very slow and computationally heavy, plus it is noisy. If you generate an image purely from raytracing, you end up with an image with many blank spots where there were not enough rays. Most graphics cards today use a combination of the two, with rasterization being used for generating the items and raytracing slapped on top in post-processing for lighting effects. In order to process all of this, GPUs need RAM, or Random Access Memory. Most Discrete GPUs have dedicated VRAM, or Video RAM, with some, such as the 4090, having over 16 GB!</p>
+
         </section>
 
         <section>
