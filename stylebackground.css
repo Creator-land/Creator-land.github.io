@@ -115,3 +115,15 @@ th {
   float: left;
   width: 100%;
 }
+
+p {
+  padding: 5px;
+}
+
+h1 {
+  padding: 5px;
+}
+
+h2 {
+  padding: 5px;
+}
